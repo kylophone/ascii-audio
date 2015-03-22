@@ -8,7 +8,7 @@ void displayMem_to_PCM(FILE *sound_out, char *display_mem, int base_freq, int sa
 	int freq[7] = {base_freq, base_freq + 200, base_freq + 400, base_freq + 600, base_freq + 800, base_freq + 1000, base_freq + 1200};
 	
 	for (int i = 0; i <= 4; i++) {
-		int letter_length = (sample_rate / 5) / 4;
+		int letter_length = (sample_rate / 5) / 3;
 		for (int j = 0; j < letter_length; j++) {
 			
 			float envelope_multiplier = sin(M_PI * ((float) j / (float) letter_length));

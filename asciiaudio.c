@@ -8,10 +8,10 @@ void displayMem_to_PCM(FILE *sound_out, char *display_mem, int base_freq, int sa
 	int freq[7] = {base_freq, base_freq + 200, base_freq + 400, base_freq + 600, base_freq + 800, base_freq + 1000, base_freq + 1200};
 	
 	for (int i = 0; i <= 4; i++) {
-		int letter_length = (sample_rate / 5) / 3;
-		for (int j = 0; j < letter_length; j++) {
+		int column_length = (sample_rate / 5) / 3;
+		for (int j = 0; j < column_length; j++) {
 			
-			float envelope_multiplier = sin(M_PI * ((float) j / (float) letter_length));
+			float envelope_multiplier = sin(M_PI * ((float) j / (float) column_length));
 
 			float sample = 0;
 			if (display_mem[i] & (1 << 0)) sample += (sin(2 * M_PI * freq[0] * (float) j / (float) sample_rate) * envelope_multiplier) / 7;
@@ -23,7 +23,7 @@ void displayMem_to_PCM(FILE *sound_out, char *display_mem, int base_freq, int sa
 			if (display_mem[i] & (1 << 6)) sample += (sin(2 * M_PI * freq[6] * (float) j / (float) sample_rate) * envelope_multiplier) / 7;
 			fwrite(&sample, sizeof(float), 1, sound_out);
 		}
-		for (int k = 0; k < letter_length; k++) {
+		for (int k = 0; k < column_length; k++) {
 			float zero = 0;
 			fwrite(&zero, sizeof(float), 1, sound_out);
 		}	
@@ -36,7 +36,6 @@ int main (int argc, char* argv[]) {
 	const int base_freq = atoi(argv[2]);
 	const char *outputFile = argv[3];
 	FILE *file = fopen(outputFile, "wb");
-
 
 	for (int i = 0; i < strlen(input_string); i++) {
 		char display_mem[5];

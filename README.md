@@ -2,7 +2,10 @@
 Generates PCM audio from an ASCII string. Text re-emerges when viewing spectrogram image. 
 <img src = "spectrogram.png">
 ##BUILDING
-`make`
+```
+cd ascii-audio
+make
+```
 ##USAGE
 ```bash
 ascii-audio -i input\ string -f 440 -b 1000 -o audio_out.raw

@@ -480,7 +480,7 @@ int ti83font(char this_ascii, char *mem_array) {
 			mem_array[4] = 0b00000000;
 			return 0;
 
-		case 92: //
+		case 92: //\
 			mem_array[0] = 0b00100000;
 			mem_array[1] = 0b00010000;
 			mem_array[2] = 0b00001000;
@@ -760,12 +760,12 @@ int ti83font(char this_ascii, char *mem_array) {
 			mem_array[4] = 0b00010000;
 			return 0;
 
-		default: //ASCII character not supported.
-			mem_array[0] = 0b00000000;
-			mem_array[1] = 0b00000000;
-			mem_array[2] = 0b00000000;
-			mem_array[3] = 0b00000000;
-			mem_array[4] = 0b00000000;
-			return 1;
+		default: //ASCII character not supported. Fills mem_array with an color inverted `?` and returns -1.
+			mem_array[0] = ~0b00100000;
+			mem_array[1] = ~0b01000000;
+			mem_array[2] = ~0b01000101;
+			mem_array[3] = ~0b01001000;
+			mem_array[4] = ~0b00110000;
+			return -1;
 	}
 }

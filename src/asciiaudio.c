@@ -15,14 +15,10 @@ void displayMem_to_PCM(FILE *sound_out, char *display_mem, int base_freq, int ba
 			float envelope_multiplier = sin(M_PI * ((float) j / (float) column_length));
 
 			float sample = 0;
-			if (display_mem[i] & (1 << 0)) sample += (sin(2 * M_PI * freq[0] *  j / sample_rate) * envelope_multiplier) / 7;
-			if (display_mem[i] & (1 << 1)) sample += (sin(2 * M_PI * freq[1] *  j / sample_rate) * envelope_multiplier) / 7;
-			if (display_mem[i] & (1 << 2)) sample += (sin(2 * M_PI * freq[2] *  j / sample_rate) * envelope_multiplier) / 7;
-			if (display_mem[i] & (1 << 3)) sample += (sin(2 * M_PI * freq[3] *  j / sample_rate) * envelope_multiplier) / 7;
-			if (display_mem[i] & (1 << 4)) sample += (sin(2 * M_PI * freq[4] *  j / sample_rate) * envelope_multiplier) / 7;
-			if (display_mem[i] & (1 << 5)) sample += (sin(2 * M_PI * freq[5] *  j / sample_rate) * envelope_multiplier) / 7;
-			if (display_mem[i] & (1 << 6)) sample += (sin(2 * M_PI * freq[6] *  j / sample_rate) * envelope_multiplier) / 7;
-			fwrite(&sample, sizeof(float), 1, sound_out);
+			for (int k = 0; k < 7; k++) {
+				if (display_mem[i] & (1 << k)) sample += (sin(2 * M_PI * freq[k] *  j / sample_rate) * envelope_multiplier) / 7;
+				fwrite(&sample, sizeof(float), 1, sound_out);
+			}
 		}
 		for (int k = 0; k < column_length; k++) {
 			float zero = 0;

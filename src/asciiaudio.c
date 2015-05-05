@@ -17,8 +17,8 @@ void displayMem_to_PCM(FILE *sound_out, char *display_mem, int base_freq, int ba
 			float sample = 0;
 			for (int k = 0; k < 7; k++) {
 				if (display_mem[i] & (1 << k)) sample += (sin(2 * M_PI * freq[k] *  j / sample_rate) * envelope_multiplier) / 7;
-				fwrite(&sample, sizeof(float), 1, sound_out);
 			}
+			fwrite(&sample, sizeof(float), 1, sound_out);
 		}
 		for (int k = 0; k < column_length; k++) {
 			float zero = 0;

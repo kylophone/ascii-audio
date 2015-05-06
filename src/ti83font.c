@@ -480,7 +480,7 @@ int ti83font(char this_ascii, char *mem_array) {
 			mem_array[4] = 0b00000000;
 			return 0;
 
-		case 92: //\
+		case 92: // backslash
 			mem_array[0] = 0b00100000;
 			mem_array[1] = 0b00010000;
 			mem_array[2] = 0b00001000;

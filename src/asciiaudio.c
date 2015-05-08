@@ -65,7 +65,7 @@ int main (int argc, char* argv[]) {
 		}
 	}
 
-	if (input_flag == 0) error();
+	if (!input_flag) error();
 
 	FILE *file = fopen(outputFile, "wb");
 

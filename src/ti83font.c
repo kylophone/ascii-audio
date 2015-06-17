@@ -1,4 +1,5 @@
-int ti83font(char this_ascii, char *mem_array) {
+int ti83font(char this_ascii, char *mem_array)
+{
   switch (this_ascii) {
     case 32: //Space
       mem_array[0] = 0b00000000;

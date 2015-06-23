@@ -32,9 +32,9 @@ void error()
 {
   fprintf(stderr, "Example usage: $ ascii-audio -i input\\ string -f 440 -b 1000 -o audio_out.raw\n");
   fprintf(stderr, "-i [input string]   (required)\n");
-  fprintf(stderr, "-f [base frequency] (default: 1000)\n");
-  fprintf(stderr, "-b [bandwidth]      (default: 1200)\n");
-  fprintf(stderr, "-o [output file]    (default: out.raw)\n");
+  fprintf(stderr, "-f [base frequency] (optional, default: 1000)\n");
+  fprintf(stderr, "-b [bandwidth]      (optional, default: 1200)\n");
+  fprintf(stderr, "-o [output file]    (optional, default: out.raw)\n");
   exit(-1);	
 }
 

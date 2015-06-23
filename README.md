@@ -18,9 +18,9 @@ echo ABCDEFGHIJKLMNOPQRSTUVWXYZ | ascii-audio -i -
 ##OPTIONS
 ```
 -i [input string]   (required)
--f [base frequency] (default: 1000)
--b [bandwidth]      (default: 1200)
--o [output file]    (default: out.raw)
+-f [base frequency] (optional, default: 1000)
+-b [bandwidth]      (optional, default: 1200)
+-o [output file]    (optional, default: out.raw)
 ```
 ##OUTPUT
 This will generate a 48k/32-bit floating point raw PCM file. You can listen to it with SoX like this:

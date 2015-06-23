@@ -1,5 +1,5 @@
 # ascii-audio
-Generates PCM audio from an ASCII string. Text re-emerges when viewing spectrogram image. 
+Generates PCM audio from an ASCII string. Text is visible on the spectrogram image.
 
 <img src = "spectrogram.png">
 ##BUILDING

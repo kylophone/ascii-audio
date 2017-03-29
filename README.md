@@ -2,11 +2,13 @@
 Generates PCM audio from an ASCII string. Text is visible on the spectrogram image.
 
 <img src = "spectrogram.png">
+
 ## BUILDING
 ```
 cd ascii-audio
 make
 ```
+
 ## USAGE
 ```bash
 ascii-audio -i input\ string -f 440 -b 1000 -o audio_out.raw
@@ -15,6 +17,7 @@ You could also use it with a pipe like this:
 ```bash
 echo ABCDEFGHIJKLMNOPQRSTUVWXYZ | ascii-audio -i -
 ```
+
 ## OPTIONS
 ```
 -i [input string]   (required)
@@ -22,6 +25,7 @@ echo ABCDEFGHIJKLMNOPQRSTUVWXYZ | ascii-audio -i -
 -b [bandwidth]      (optional, default: 1200)
 -o [output file]    (optional, default: out.raw)
 ```
+
 ## OUTPUT
 This will generate a 48k/32-bit floating point raw PCM file. You can listen to it with SoX like this:
 
